@@ -1,6 +1,6 @@
 # 飞智手柄电量托盘（Flydigi Battery）
 
-在 Windows 任务栏托盘显示飞智（Flydigi）手柄的电量、充电与连接状态。
+在 Windows 任务栏托盘显示飞智（Flydigi）八爪鱼5手柄的电量、充电与连接状态。
 
 数据来自飞智空间站后台服务 `SpaceStationService.exe` 的命名管道 `\\.\pipe\fcs.sock`，与官方界面同源，只有 **0–6 共 7 档**；**没有百分比，也没有 `isCharging` 字段**。XInput 仅用 `XInputGetState` 判断“手柄是否已连接”，不读取电量。
 
