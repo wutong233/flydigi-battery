@@ -2,7 +2,7 @@
 
 在 Windows 任务栏托盘显示飞智（Flydigi）八爪鱼5手柄的电量、充电与连接状态。
 
-数据来自飞智空间站后台服务 `SpaceStationService.exe` 的命名管道 `\\.\pipe\fcs.sock`，与官方界面同源，只有 **0–6 共 7 档**；**没有百分比，也没有 `isCharging` 字段**。XInput 仅用 `XInputGetState` 判断“手柄是否已连接”，不读取电量。
+数据来自飞智空间站后台服务 `SpaceStationService.exe` 的命名管道 `\\.\pipe\fcs.sock`，与官方界面同源，只有 **0–6 共 7 档**。
 
 项目同时提供编译好的 exe（推荐）与 PowerShell 参考实现，两者的数据通道与图标规则保持一致。
 
@@ -81,7 +81,6 @@ icacls .\flydigi_battery_tray.exe /setintegritylevel Medium
 
 - **7 档，不是百分比。** 固件与 App 只提供 `0–6`；`percent` / `approx` 是按档位均分换算的估算值（如 4 → `≈67% (59-75%)`）。托盘图标用黑色 1px 笔画显示两位百分比，满电（100%）显示满格电池，悬停提示仍给出 `100% (6/6)`。
 - **充电状态是推断的。** 飞智 schema 没有 `isCharging`，按 `connectType` 判断：`Wired(1)` = 接着线，`Dongle(2)` / `Bluetooth(3)` = 电池供电。
-- **XInput 电量通道已删除。** 它只有 4 档，且接收器插在 USB 上会把无线手柄误报成 `wired`；现在只保留连接检测。
 - **管道是单客户端。** 空间站 App 运行时管道被占用，退出 App 后后台服务仍在，托盘会自动恢复 7 档。
 - **需要 Medium 完整性。** Low IL 的 exe 连接 `fcs.sock` 会得到 `ERROR_ACCESS_DENIED`。
 
