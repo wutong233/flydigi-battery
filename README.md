@@ -10,6 +10,10 @@
 
 ---
 
+<img width="36" height="32" alt="image" src="https://github.com/user-attachments/assets/2740aa56-8df6-43f9-b36a-4231af445f76" />
+<img width="168" height="72" alt="image" src="https://github.com/user-attachments/assets/e4b1052b-e63e-4ef9-b5ba-18f6a329ac90" />
+
+
 ## 快速开始
 
 要求：Windows 10/11，系统自带 .NET Framework 4.x，无需安装、无需管理员权限。
