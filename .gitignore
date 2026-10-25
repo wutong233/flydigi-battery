@@ -1,0 +1,23 @@
+# 基准/预览临时目录
+_bench/
+
+# 逆向工具的输出（可能包含从 App 提取的专有内容）
+asar_out/
+asar_full/
+
+# 从飞智 App 提取的专有数据，版权归原所有者，不随仓库分发
+tools/schema.json
+tools/desc_bin/
+tools/out_*.txt
+
+# Python 缓存
+__pycache__/
+*.pyc
+
+# 编辑器与系统文件
+.vscode/
+.idea/
+*.user
+Thumbs.db
+Desktop.ini
+.DS_Store
